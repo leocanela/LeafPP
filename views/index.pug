@@ -1,0 +1,120 @@
+doctype html
+html
+	head
+		// WebApp no iOS
+		title Leaf PP v0.01
+		meta(charset="UTF-8")
+		meta(name="apple-mobile-web-app-capable", content="yes")
+		meta(name="apple-mobile-web-app-status-bar-style", content="default")
+		link(rel="apple-touch-icon", href="notes.png")
+		// Dependências
+		link(rel="stylesheet", href="/bower_components/onsenui/css/onsenui.min.css")
+		link(rel="stylesheet", href="/bower_components/onsenui/css/onsen-css-components.min.css")
+		script(src="/bower_components/angular/angular.min.js")
+		script(src="/bower_components/onsenui/js/onsenui.min.js")
+		script(src="/bower_components/onsenui/js/angular-onsenui.min.js")
+		script(src="/app.js")
+	body(ng-controller="appController")
+		// Página principal
+		ons-navigator(swipeable="", var="nav", page="main.html")
+		template(id="main.html")
+			ons-page
+				// Barra do topo
+				ons-toolbar
+					.center
+						i.fa.fa-leaf(style="color: #32b72f; font-size: 1.5em", aria-hidden="true")
+						|   Leaf PP
+					.right
+						ons-toolbar-button(ng-click="nav.pushPage('info.html', {data: {title: 'Informações'}})")
+							ons-icon(icon="ion-ios-information-outline, material:md-info")
+				// Lista de medicamentos
+				div(style="text-align: center; margin-top: 30px;")
+					ons-input(style="padding-bottom: 10px" id="username" modifier="underbar" placeholder="Peso em Kg" ng-model="peso" float)
+					ons-card(class="table-finale" style="padding: 0; margin: 0; border-radius: 0;")
+						ons-row(style="background-color: #b5e5b0; border-bottom: 1px solid #b5e5b0; text-align: center; font-weight: bold; margin-bottom: 8px; font-size: 0.8em;" id="tittable")
+							ons-col Droga
+							ons-col Dose
+							ons-col Posologia
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;" id="adrena")
+							ons-col Adrenalina 1mg/ml
+							ons-col(style="text-align: center") 0.01mg/kg
+							ons-col Diluir 1 ml em 9ml de SF0.9% e fazer {{peso*0.1 | number : 2}}ml a cada 3 a 5 minutos.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;" id="atropa")
+							ons-col Atropina 0.5mg/ml
+							ons-col(style="text-align: center") 0.02mg/kg
+							ons-col Fazer {{peso*0.04 | number : 2}}ml por dose, sem diluir.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Adenosina 6mg/2ml
+							ons-col(style="text-align: center") 0.1mg/kg <br> 0.2mg/kg
+							ons-col Fazer {{peso*0.3 | number : 2}}ml por dose, sem diluir.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Bicarbonato de Sódio 8.4%
+							ons-col(style="text-align: center") 1mEq/kg
+							ons-col Diluir 10ml de bicarbonato em 10ml de AD e infundir {{peso | number : 2}}ml lento.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Diazepam 10mg/2ml
+							ons-col(style="text-align: center") 0.3mg/kg
+							ons-col Fazer {{peso*0.06 | number : 2}}ml puro.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Difenilhidantoína 250mg/5ml
+							ons-col(style="text-align: center") 10mg/kg
+							ons-col Diluir 1 ampola em 95ml de SF0.9% e infundir {{peso*4 | number : 1}}ml em 20 minutos.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Fenobarbital sódico 200mg/2ml
+							ons-col(style="text-align: center") 10mg/kg
+							ons-col Diluir 1ml em 9ml de AD e fazer {{peso | number : 1}}ml lento.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Fentanil 0,05mg/ml
+							ons-col(style="text-align: center") 1mcg/kg
+							ons-col Diluir 1ml em 9ml de AD e fazer  {{peso*0.2 | number : 2}}ml lento.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Flumazenil 0.5mg/5ml
+							ons-col(style="text-align: center") 0.01mg/kg (Max:0.2mg)
+							ons-col Fazer {{peso*0.1 | number : 2}}ml em bolus rápido.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Glicose 10%
+							ons-col(style="text-align: center") 2mg/kg
+							ons-col Fazer {{peso*2 | number : 1}}ml lento.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Lidocaína 2% sem vaso 20mg/ml
+							ons-col(style="text-align: center") 1mg/kg
+							ons-col Diluir 1ml em 4ml de AD e fazer {{peso/4 | number : 1}}ml em bolus.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Manitol 20%
+							ons-col(style="text-align: center") 0.5g/kg
+							ons-col  Se até 5 anos, fazer {{peso*2.5 | number : 1}}ml em bolus. <br> Se maior que 5 anos, fazer 5ml em bolus.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Midazolam 5mg/ml
+							ons-col(style="text-align: center") 0.2mg/kg
+							ons-col  Diluir 1ml em 4ml de AD e fazer {{peso*0.2 | number : 2}}ml lento.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Naloxone 0.4mg/ml
+							ons-col(style="text-align: center") 0.1mg/kg
+							ons-col  Fazer {{peso*0.25 | number : 2}}ml em bôlus.	
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Rocurônio 10mg/ml
+							ons-col(style="text-align: center") 1mg/kg
+							ons-col  Diluir 1ml em 9ml de AD e fazer {{peso | number : 1}}ml.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Succinilcolina 10mg/10ml
+							ons-col(style="text-align: center") 1.5mg/kg
+							ons-col  Diluir 1ml em 9ml de AD e fazer {{peso*1.5 | number : 1}}ml.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Cardioversão
+							ons-col(style="text-align: center") 1J/kg
+							ons-col  Ligar sincronizador {{peso | number : 1}} Joules.
+						ons-row(style="padding-bottom: 8px; font-size: 0.8em;")
+							ons-col Desfibrilação
+							ons-col(style="text-align: center") 2J/kg
+							ons-col  {{peso*2 | number : 1}} Joules. Dobrar a dose na segunda tentativa.		
+		// Página de Informações
+		template(id="info.html")
+			ons-page
+				ons-toolbar
+					.left
+						ons-back-button
+					.center Informações
+				ons-card
+					.title Informações
+					.content Aplicativo desenvolvido por Leonardo Canela Almeida (CRM 67377) para sua linda futura esposa Fabiane :)
+					br
